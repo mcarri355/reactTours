@@ -1,17 +1,23 @@
-const List = ({people, remove}) => {
-  return people.map(person => {
-    const {id, name, age, image} = person
-    return (
-        <article key={id} className="list">
-            <img src={image} alt={name} />
-            <div style={{position: 'relative'}}>
-                <h4>{name}</h4>
-                <p>{age}</p>
-                <button onClick={() => {remove(id)}} style={{width: '6.5rem', position: 'absolute', right: 0, bottom: '25%'}}>Remove</button>
-            </div>
-        </article>
-    )
-  })
-}
+import React from 'react';
 
-export default List
+const Tour = ({ tour, onNotInterested }) => {
+  const { name, info, image, price } = tour;
+
+  return (
+    <div className="tour-container">
+      <img className="tour-image" src={image} alt={name} />
+      <div className="tour-details">
+        <h2>{name}</h2>
+        <p>{info}</p>
+        <p>${price}</p>
+        <button className="not-interested-button" onClick={onNotInterested}>
+          Not Interested
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Tour;
+
+
